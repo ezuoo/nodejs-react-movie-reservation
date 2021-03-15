@@ -17,8 +17,22 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+<<<<<<< HEAD
 
 
+=======
+/* 
+app.use('/api/users', require('./routes/users'));
+app.use('/api/elements', require('./routes/elements'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/images', require('./routes/images'))
+app.use('/api/slides', require('./routes/slides'))
+app.use('/api/notices', require('./routes/notices'))
+app.use('/api/orders', require('./routes/orders')) */
+app.get('/', (req, res) => {
+    return res.json({success: true, msg: 'index page test'});
+})
+>>>>>>> a8bd982e31ae537ec68f769fdd1cd7267b228008
 const port = process.env.PORT || 5000
 
 app.listen(port, () => {

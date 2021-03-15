@@ -23,7 +23,7 @@ app.use('/api/slides', require('./routes/slides'))
 app.use('/api/notices', require('./routes/notices'))
 app.use('/api/orders', require('./routes/orders')) */
 app.get('/', (req, res) => {
-    return res.json({success: true, msg: 'index page'});
+    return res.json({success: true, msg: 'index page test'});
 })
 const port = process.env.PORT || 5000
 

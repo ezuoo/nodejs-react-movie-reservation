@@ -12,15 +12,6 @@ const ReservationSchema = mongoose.Schema({
 });
 
 
-ReservationSchema.statics.saveReservation = function (parameter, cb) {
-    let row = new Reservation(parameter);
-    row['_id'] = new mongoose.Types.ObjectId();
-    row.date = moment().format("YYYY-MM-DD HH:mm");
-    
-    return cb(row);
-}
-
-
 const Reservation = mongoose.model('Reservation', ReservationSchema);
 
 module.exports = { Reservation }

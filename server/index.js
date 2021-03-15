@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const axios = require('axios');
+
+const validateRouter = require('./routes/validateRouter');
+
 const key = 'mongodb+srv://root:1234@node-react.njajl.mongodb.net/movie-reservation?retryWrites=true&w=majority'
 const app = express();
 const connect = mongoose.connect(key,
@@ -16,9 +19,9 @@ app.use(bodyParser.json());
 
 
 //app.use('/api/users', require('./routes/users'));
+app.use('/', require('./routes/validateRouter'));
 
-
-app.get('/', async(req, res) => {
+/* app.get('/', async(req, res) => {
     try {
       const URL = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json";
       const key = "6b79d535cffb5613aaf19f53da80205f";
@@ -34,8 +37,7 @@ app.get('/', async(req, res) => {
 
     return res.json({success: true, msg: 'index page'});
 });
-
-
+ */
 
 
 

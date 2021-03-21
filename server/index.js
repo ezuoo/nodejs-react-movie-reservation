@@ -2,9 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const axios = require('axios');
 
-const validateRouter = require('./routes/validateRouter');
+const validateRouter = require('./routes/reservationRouter');
 
 const key = 'mongodb+srv://root:1234@node-react.njajl.mongodb.net/movie-reservation?retryWrites=true&w=majority'
 const app = express();
@@ -17,30 +16,8 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-//app.use('/api/users', require('./routes/users'));
-app.use('/', require('./routes/validateRouter'));
-//test 123
-/* app.get('/', async(req, res) => {
-    try {
-      const URL = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json";
-      const key = "6b79d535cffb5613aaf19f53da80205f";
-      const targetDt = "20120101";
-
-      let testVar = await axios.get(URL + "?key=" + key + "&targetDt=" + targetDt);
-      let list = testVar.data.boxOfficeResult;
-
-      console.log(list.dailyBoxOfficeList[2]);
-    } catch(error) {
-      console.err(error);
-    }
-
-    return res.json({success: true, msg: 'index page'});
-});
- */
-
-
-
+app.use('/', require('./routes/reservationRouter'));
+app.use('/', require('./routes/testUtilRouter'));
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {

@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 //app.use('/api/users', require('./routes/users'));
 app.use('/', require('./routes/validateRouter'));
-//test
+//test 123
 /* app.get('/', async(req, res) => {
     try {
       const URL = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json";
